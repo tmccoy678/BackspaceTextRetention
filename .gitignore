@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Never commit model weights, credentials, or complete private session stores.
+*.gguf
+evidence/videos/*.MOV
+evidence/videos/*.mov
+*.safetensors
+*.key
+*.pem
+credentials.json
+*.sqlite
+*.sqlite3

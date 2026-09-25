@@ -1,0 +1,24 @@
+Source: Apple Open Source, shell_cmds/script/script.1
+Commit: e256b9a97f9bbd751305b7af36cf751668fbb849
+URL: https://github.com/apple-oss-distributions/shell_cmds/blob/e256b9a97f9bbd751305b7af36cf751668fbb849/script/script.1
+Retrieved: 2026-09-24
+Downloaded upstream file SHA-256:
+6148637d4aa2e134f1b47a299b80279e26edd538299030cc0aff124c5b57a748
+
+Experiment-relevant excerpts:
+
+DESCRIPTION
+    The script utility makes a typescript of everything printed on your
+    terminal.
+
+    It is useful for students who need a hardcopy record of an interactive
+    session as proof of an assignment.
+
+OPTION -k
+    Log keys sent to the program as well as output.
+
+BUGS
+    The script utility places everything in the log file, including linefeeds
+    and backspaces. This is not what the naive user expects.
+
+The experiment used -q and did not use -k.

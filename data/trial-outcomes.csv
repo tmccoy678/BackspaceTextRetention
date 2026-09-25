@@ -1,0 +1,13 @@
+condition,trial,marker,model_exact_marker,transcript_input_echo,model_none,clear_before_trial
+canonical,1,CANARY_K7M4Q2,0,1,1,NA
+canonical,2,CANARY_R9T6V3,0,1,1,1
+canonical,3,CANARY_B2H8P5,0,1,1,1
+canonical,4,CANARY_D5X1N7,0,1,1,1
+canonical,5,CANARY_J3C9L4,0,1,1,1
+canonical,6,CANARY_W6F2S8,0,1,1,1
+raw,1,CANARY_K7M4Q2,1,0,0,NA
+raw,2,CANARY_R9T6V3,1,0,0,1
+raw,3,CANARY_B2H8P5,1,0,0,1
+raw,4,CANARY_D5X1N7,1,0,0,1
+raw,5,CANARY_J3C9L4,1,0,0,1
+raw,6,CANARY_W6F2S8,1,0,0,1

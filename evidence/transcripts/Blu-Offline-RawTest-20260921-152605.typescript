@@ -1,0 +1,51 @@
+
+
+Loading model... 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b10964-b29c606e2
+model      : /Users/taylor/Blu-Workbench/offline/models/Ministral-3-14B-Instruct-2512-Q5_K_M.gguf
+ftype      : Q5_K - Medium
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> CANARY_K7M4Q2
+
+> Chat history cleared.
+
+> CANARY_R9T6V3
+
+> Chat history cleared.
+
+> CANARY_B2H8P5
+
+> Chat history cleared.
+
+> CANARY_D5X1N7
+
+> Chat history cleared.
+
+> CANARY_J3C9L4
+
+> Chat history cleared.
+
+> CANARY_W6F2S8
+
+> 
+
+Exiting...
