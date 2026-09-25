@@ -1,0 +1,72 @@
+[
+  {
+    "fixture": "blind-01.typescript",
+    "target": "epzZNjl Yigo7fI",
+    "committed": "WaviU6AEU.RRAgJ",
+    "erase_triplets": 15,
+    "fixture_sha256": "3319f934b5f991b767ef5f23484716f1c00016aff15d59301a61cb35c3abf034"
+  },
+  {
+    "fixture": "blind-02.typescript",
+    "target": "pIQY6376JxD7ZkU",
+    "committed": "NJFy7198DHD.2Mt",
+    "erase_triplets": 15,
+    "fixture_sha256": "d23347c04d2d66d25b554f6952a9a1184fa0fa5d97dc9e7b0cd1636e57937e04"
+  },
+  {
+    "fixture": "blind-03.typescript",
+    "target": "C7a6UvmG15jUPBy",
+    "committed": "zuxmqwQipHN1hcy",
+    "erase_triplets": 15,
+    "fixture_sha256": "ceeb31a7579ac3ce621589198deebdc61e8dda2cd331402a4fc3d6faf0e736f8"
+  },
+  {
+    "fixture": "blind-04.typescript",
+    "target": "4je5qxMDOYu7YMp",
+    "committed": "2CU8tA_v.u8KCtI",
+    "erase_triplets": 15,
+    "fixture_sha256": "b1b4e680c8c475c11ac4077e69c39230a2f9790e015b619628c5c8d629f3fb08"
+  },
+  {
+    "fixture": "blind-05.typescript",
+    "target": "OMatNMI2j8HNEuy",
+    "committed": "TXTG3CAZg5DTmSV",
+    "erase_triplets": 15,
+    "fixture_sha256": "2b87ef2b0775ac124575a29130f88c9b60688c3d7a106c341297bfa29715f4de"
+  },
+  {
+    "fixture": "blind-06.typescript",
+    "target": "1lw-r0.FhH7j1c2",
+    "committed": "Eh6eD62X0l-OBSQ",
+    "erase_triplets": 15,
+    "fixture_sha256": "93226003a4be792ef10fc1d81b3cdf9f800f228a6032ec9ac2bc424eb685114c"
+  },
+  {
+    "fixture": "blind-07.typescript",
+    "target": "VFnmM8qX3w33JRy",
+    "committed": "9A1qJ 4cDktXgQo",
+    "erase_triplets": 15,
+    "fixture_sha256": "e0eedbb3ddc56001c7aeb4e56f834d964d18a85927f3535246e812fd95d25104"
+  },
+  {
+    "fixture": "blind-08.typescript",
+    "target": "9s-go.oN2103Gw9",
+    "committed": "dYGglPsJZYyTt8U",
+    "erase_triplets": 15,
+    "fixture_sha256": "44c7c91fd684e896fbae69d07adf171242b1e35b635f331a5579bb4d59b6fc01"
+  },
+  {
+    "fixture": "blind-09.typescript",
+    "target": "2OWgBhjYcWGFs1f",
+    "committed": "aycGlpeZm-ysDNO",
+    "erase_triplets": 15,
+    "fixture_sha256": "f32e1e0f4030c04606c757fe8ece8ae7f76f9aa86e7b9599243342ad9cf92a9c"
+  },
+  {
+    "fixture": "blind-10.typescript",
+    "target": "v RmW0AJ18.IrNE",
+    "committed": "bcnUAn7HlvoLfuG",
+    "erase_triplets": 15,
+    "fixture_sha256": "8686b9dc175391cb316bc27df64b32ca92e291a162eabaeeb2d04c6fd45ac8ad"
+  }
+]
