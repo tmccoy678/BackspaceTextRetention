@@ -1,6 +1,6 @@
 # Synthetic input-boundary pilot: results
 
-Protocol: [INPUT-BOUNDARY-QUANT-PROTOCOL.md](INPUT-BOUNDARY-QUANT-PROTOCOL.md).
+Protocol: [EXPERIMENT-PROTOCOL.md](EXPERIMENT-PROTOCOL.md).
 The six markers, final question, conditions, and scoring rule were recorded
 before the repeated runs. No private text was entered.
 

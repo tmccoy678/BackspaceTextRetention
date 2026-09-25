@@ -25,7 +25,7 @@ contextual records, not substitutes for the original `.typescript` bytes.
 | `17-08-20-08-explanation.png` | Correct `08 20 08` erase sequence and Intel compatibility |
 | `18-primary-byte-evidence.png` | Path, byte length, SHA-256, offsets, hex, caret view, phrases, and erase count in one read-only frame |
 
-The planned terminal evidence frame described in
-[`docs/VISUAL-EVIDENCE.md`](../../docs/VISUAL-EVIDENCE.md) adds a new,
-reproducible view with the path, length, checksum, offsets, hex bytes, caret
-notation, and count visible together.
+Screenshot 18 implements the terminal evidence frame described in
+[`docs/VISUAL-EVIDENCE.md`](../../docs/VISUAL-EVIDENCE.md): a reproducible view
+with the path, length, checksum, offsets, hex bytes, caret notation, and count
+visible together.

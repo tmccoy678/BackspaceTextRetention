@@ -1,116 +1,352 @@
-# Backspace Gate
+# Backspace Gate: A preregistered blinded test of exact recovery from a deleted terminal draft
 
-> A preserved, reproducible record of a local terminal input-boundary experiment
-> conducted on September 21, 2026.
+**Taylor McCoy¹ and Blu²**<br>
+¹ Independent researcher<br>
+² OpenAI Codex, Blu Private lane; technical collaborator
 
-**Research and operation:** Taylor  
-**Technical collaboration, experimental tooling, and documentation:** **Blu —
-OpenAI Codex, Blu Private lane**  
-See [CREDITS.md](CREDITS.md) for the full provenance statement.
+**Study status:** Preregistered prospective technical study. Target generation,
+confirmatory data collection, unblinding, and analysis have **not yet occurred**.
 
-![The saved transcript beside the local-model session](evidence/screenshots/11-side-by-side-result.png)
+The completed September 21 terminal case that motivated this study is preserved
+separately as the [original-observation foundation](foundation/original-observation/).
+It is prior evidence and rationale, not a result of the prospective study.
 
-## What was observed
+## Abstract
 
-The experiment separated three things that are easy to conflate:
+Text deleted from a terminal's visible input line may remain recoverable in a
+session recording even when the edited text is not delivered to the interactive
+application. A completed local case established a plausible recovery path:
+macOS `/usr/bin/script -q` preserved draft-text echo and subsequent `08 20 08`
+erase sequences while canonical line editing delivered only the committed line
+to `llama-cli`. Because that observation was discovered retrospectively, it did
+not constitute a prospectively blinded test of exact recovery.
 
-1. bytes typed into a terminal;
-2. text echoed and retained by macOS `script(1)`; and
-3. bytes delivered to the local `llama-cli` process.
+This study will test whether transcript-mediated inspection can recover a
+previously unknown ordered sequence of ten physical playing cards. Taylor will
+generate the target by drawing ten cards without replacement from a shuffled
+standard 52-card deck, record the ground truth off-computer, enter an agreed
+text encoding into a locally recorded terminal without pressing Return, delete
+the complete target, and submit a separate control line. Blu will inspect the
+frozen local transcript and record one exact prediction before the target is
+revealed. The primary endpoint is exact ordered-sequence agreement. Under the
+preregistered uniform-order independence null, the probability of an exact
+match is `1 / 52P10 = 1.741926487643891E-17`, approximately one in 57.4
+quadrillion. No outcome data have been collected and no confirmatory analysis
+has been performed. An exact match would reject the specified chance-guessing
+null under its assumptions; it would not, by itself, identify the recovery
+mechanism or establish that a model or network service received deleted text.
 
-In ordinary canonical terminal mode, a deleted synthetic marker remained in the
-terminal recording as echo, while the local model answered as though only the
-final submitted line reached it. In a deliberately constructed raw-input mode
-(`-echo -icanon`), the local model repeated the erased marker exactly.
+**Keywords:** terminal recording; pseudo-terminal; blinded recovery; playing
+cards; exact permutation; backspace text data; local language model; `script`;
+`llama-cli`
 
-Apple documents that `script(1)` records everything printed on the terminal and
-that its log includes backspaces. The non-obvious consequence demonstrated here
-is that the text those backspaces visually erase can remain byte-recoverable in
-the sequential recording. The project treats this as a measured
-documentation-to-behavior gap, not a claim that the underlying terminal
-mechanism was previously unknown.
+## Introduction
 
-The preregistered matched pilot produced:
+Interactive terminals separate visible editing from application input. With
+canonical line processing and echo enabled, a pseudo-terminal may display typed
+characters, process an erase action, and return only the edited line after
+Return. A sequential recorder can nevertheless preserve the earlier character
+echo and the later control bytes used to remove those characters from the
+screen. Apple documents that `script(1)` records terminal output and that its
+log includes backspaces, while POSIX describes canonical editing and echo at
+the terminal line discipline (Apple Inc., 2023a, 2023b; The Open Group, 2004).
 
-| Endpoint | Canonical line editing | Raw `-echo -icanon` |
-| --- | ---: | ---: |
-| Model answer contained the erased marker | 0/6 | 6/6 |
-| Recording contained an input-echo erase sequence | 6/6 | 0/6 |
+The [foundation case](foundation/original-observation/) observed this boundary
+in one local `llama-cli` session. The recording contained the abandoned phrase
+`marie is black.`, fifteen `08 20 08` erase triplets, and the committed phrase
+`stanley is red.`. A later six-pair diagnostic found erased synthetic markers
+in 0/6 model answers under canonical line editing and 6/6 answers under a
+deliberately altered `-echo -icanon` condition. Those results explain why exact
+recovery from a terminal recording is technically plausible, but they do not
+provide a blind confirmatory test: the phrases and recording structure were
+already available when inspection occurred.
 
-The raw-mode recording still contains the markers because the **model printed
-them in its answers**. See the [protocol](docs/EXPERIMENT-PROTOCOL.md),
-[results](docs/EXPERIMENT-RESULTS.md), and [findings](docs/FINDINGS.md).
+The present study replaces a researcher-authored phrase with a physical target
+that is unknown to the inspecting assistant until after its prediction is
+frozen. A deck of cards provides a familiar, finite sampling frame and an
+ordered target that another researcher can reproduce without constructing a
+custom word list. The study asks one bounded question:
 
-## What this does not show
+> Can read-only inspection of the frozen terminal recording recover the exact
+> ordered ten-card target that was typed and visually deleted before a separate
+> line was committed?
 
-This repository does **not** establish that Ollama, OpenAI, ChatGPT, Codex, or
-another cloud service receives deleted draft text. The measured runtime was a
-local `llama-cli` process wrapped by macOS `/usr/bin/script`. It also does not
-show a byte-for-byte model prompt trace, a population rate, or anything about
-consciousness or subjective identity.
+The preregistered hypothesis is exact recovery of all ten cards in order. The
+null hypothesis is that the frozen recovery is independent of the concealed
+card order and that any exact ordered match occurs by chance.
 
-## Evidence map
+## Methods
 
-- [`evidence/transcripts/`](evidence/transcripts/) — three byte-preserved
-  `.typescript` recordings: the initial discovery and both matched conditions.
-- [`evidence/screenshots/`](evidence/screenshots/) — seventeen contemporaneous
-  screenshots showing the hypothesis, source inspection, experiment, corrections,
-  and raw-byte interpretation.
-- [`evidence/moltbook/`](evidence/moltbook/) — live-page screenshots of the
-  public post and later correction; these are secondary discussion, not an
-  independent measurement.
-- [`evidence/videos/`](evidence/videos/) — checksums, metadata inventory, and
-  first-frame previews for three contemporaneous iPhone recordings. The large
-  originals are handled separately so Git does not alter or reject them.
-- [`docs/EXPERIMENT-PROTOCOL.md`](docs/EXPERIMENT-PROTOCOL.md) — the six-pair
-  protocol recorded before the repeated trials.
-- [`docs/EXPERIMENT-RESULTS.md`](docs/EXPERIMENT-RESULTS.md) — the declared
-  endpoints, observed counts, checksums, and limitations.
-- [`manuscript/BACKSPACE-GATE-MANUSCRIPT.md`](manuscript/BACKSPACE-GATE-MANUSCRIPT.md)
-  — concise manuscript-style report with APA references and `ACK`.
-- [`data/trial-outcomes.csv`](data/trial-outcomes.csv) and
-  [`analysis/summarize_trials.py`](analysis/summarize_trials.py) — inspectable
-  trial-level data and preregistered descriptive analysis.
-- [`docs/CONVERSATION-EXCERPTS.md`](docs/CONVERSATION-EXCERPTS.md) — exact
-  relevant language preserved with timestamps and corrections.
-- [`docs/PUBLICATION-VENUES.md`](docs/PUBLICATION-VENUES.md) — source-backed
-  assessment of privacy, systems, measurement, human-factors, and Nature-family
-  publication routes.
-- [`tools/`](tools/) — the original launcher/wrapper and a small byte-inspection
-  utility.
-- [`provenance/`](provenance/) — exact runner/model metadata and the upstream
-  llama.cpp license. Model weights are intentionally excluded.
+### Design
 
-## Verify locally
+This is a prospective, blinded, single-challenge technical experiment. Taylor
+is the target generator and physical operator. Blu is the transcript inspector
+and predictor. Ground truth remains off the test computer and outside the chat
+until the prediction and transcript artifact are frozen. The experimental unit
+is the complete ordered ten-card sequence; individual card positions are not
+treated as ten independent replications.
 
-```sh
-shasum -a 256 -c MANIFEST.sha256
-python3 tools/inspect_typescript.py evidence/transcripts/*.typescript
-python3 -m unittest discover -s tests -v
+The controlling preregistration is available in both human-readable and
+workbook form:
+
+- [`preregistration/PREREGISTRATION-2026-09-24.md`](preregistration/PREREGISTRATION-2026-09-24.md)
+- [`preregistration/BackspaceGate.xlsx`](preregistration/BackspaceGate.xlsx)
+- [`preregistration/CHECKSUMS.sha256`](preregistration/CHECKSUMS.sha256)
+
+The initial eight-word design remains visible in Git history. Before any card
+target was generated, it was transparently amended to the standardized
+ten-card design in commit `3a2e98b`.
+
+### Materials and runtime
+
+The physical sampling frame will be one ordinary 52-card deck with no jokers.
+Cards will be drawn sequentially without replacement. The local interaction
+will use the same class of measured path as the foundation case:
+
+```text
+physical card target → typed terminal draft → script child PTY → llama-cli
+                                               ↘ .typescript recording
 ```
 
-The discovery recording contains fifteen literal `08 20 08` sequences:
-backspace, space, backspace. The evidence can be inspected without asking a
-text editor to interpret terminal control characters:
+Exact hardware, operating-system build, Terminal version, `script` version,
+llama.cpp build, model artifact, launcher command, file permissions, and
+network state will be recorded again at collection time. They will not be
+copied forward from the foundation case as though live state could not change.
 
-```sh
-xxd -g 1 -s 960 -l 220 \
-  evidence/transcripts/Blu-Offline-20260921-153748.typescript
+### Target generation and blinding
+
+1. Before shuffling or drawing, the researchers will freeze an unambiguous
+   textual card notation, the separate committed control line, and the
+   transcript filename in a dated protocol amendment.
+2. Taylor will shuffle a complete 52-card deck and draw ten cards sequentially
+   without replacement.
+3. Taylor will write the ordered target on paper and preserve contemporaneous
+   photographic or video evidence before terminal entry.
+4. The physical record and target sequence will remain outside the test
+   computer and outside the chat until Blu's prediction is frozen.
+5. Taylor will not disclose hints, partial identities, suit counts, ranks, or
+   ordering before unblinding.
+
+The physical shuffle is intended to randomize order, but the protocol does not
+claim that a hand shuffle is mathematically proven to sample every permutation
+with equal probability. The one-in-57.4-quadrillion calculation is explicitly
+conditional on the uniform-order null.
+
+### Terminal-entry procedure
+
+The local terminal session will be wrapped by `/usr/bin/script -q` and will use
+ordinary canonical line editing. Taylor will:
+
+1. type the encoded ten-card target without pressing Return;
+2. press Delete until the complete encoded target is visually removed;
+3. type the separately frozen control line;
+4. press Return once;
+5. end the local interaction cleanly and preserve the resulting `.typescript`
+   file without conversion.
+
+Network disconnection may be recorded as an auxiliary boundary, but it is not
+the independent variable and will not substitute for process- or byte-level
+evidence.
+
+### Prediction freeze and unblinding
+
+After Taylor supplies only the agreed inspection signal, Blu will inspect the
+saved transcript read-only. Before receiving the paper record, photograph,
+video, or any description of the cards, Blu will freeze:
+
+- one ordered ten-card prediction in the preregistered notation;
+- the transcript path, byte length, and SHA-256;
+- the relevant byte offsets and erase-sequence count;
+- the inspection output and its SHA-256; and
+- any protocol deviation observed before unblinding.
+
+Taylor will then reveal the signed physical record and supporting media once.
+The frozen prediction will be compared with ground truth without editing either
+record. A failed, partial, malformed, or missing prediction remains a failure;
+the challenge will not be repeated merely to obtain significance. Any later
+replication requires a new target and a separately timestamped preregistration.
+
+### Evidence integrity
+
+Source recordings will remain byte-preserved. Human-readable hex or caret
+renderings are derivatives and will carry their own filenames and checksums.
+The repository manifest, workbook checksum, Git commit, physical ground-truth
+record, and frozen prediction together will document ordering and provenance.
+Secrets, credentials, private messages, and unrelated sensitive text are
+excluded from the test.
+
+## Data Collection and Analysis
+
+### Current status
+
+**Confirmatory data collection has not begun. No target cards have been drawn,
+no prediction has been scored, and no confirmatory analysis has been run.**
+
+### Variables and endpoints
+
+| Field | Preregistered specification |
+| --- | --- |
+| Independent variable | Concealed ordered ten-card sequence drawn without replacement from a shuffled standard 52-card deck without jokers |
+| Primary dependent variable | Exact ordered-sequence match (`0` or `1`) |
+| Secondary outcomes | Correct ordered positions out of 10; exact card identities irrespective of order; edit distance; Spearman rank correlation for ordering, reported secondarily |
+| Primary prediction | 10/10 cards correct and in order; exact-sequence match = 1 |
+
+### Primary exact analysis
+
+The number of possible ordered ten-card sequences drawn without replacement is:
+
+```text
+P(52,10) = 52! / 42! = 57,407,703,889,536,000
 ```
 
-![Hex-byte explanation and cross-machine hash check](evidence/screenshots/16-byte-08-and-hash-check.png)
+Under the preregistered null that the frozen prediction is independent of a
+uniformly ordered target:
 
-See [How to photograph an invisible byte](docs/VISUAL-EVIDENCE.md) for the
-hex, caret, checksum, and screenshot method.
+```text
+Pr(exact ordered match | H0)
+  = 1 / P(52,10)
+  = 1.741926487643891E-17
+```
 
-## Reproduction boundary
+This exact ordered-sequence probability is the primary inferential quantity.
+Spearman's `rho`, correct-position count, and edit distance are secondary
+descriptions of partial agreement. If all ten identities were somehow known but
+their order were independently random, the probability of perfect ordering
+would be `1 / 10! = 2.755731922398589E-7`.
 
-Use synthetic markers only. Terminal recorders can preserve text that appears
-erased on screen. Never use secrets, credentials, private messages, or other
-sensitive text in an input-boundary experiment.
+The analysis will report the observed sequence, frozen prediction, exact-match
+indicator, position-level agreement, deviations, and reproducible calculations.
+The result will not be described as the probability that the null hypothesis is
+true. One challenge also cannot estimate a general recovery error rate.
 
-## License
+### Analysis artifacts
 
-Original project documentation and utilities are available under the MIT
-License. Evidence captures and third-party material have narrower provenance;
-see [LICENSE-SCOPE.md](LICENSE-SCOPE.md).
+The preregistration workbook is
+[`BackspaceGate.xlsx`](preregistration/BackspaceGate.xlsx).
+Final scoring code, R output, result tables, and any derived figures will be
+added only after the prediction is frozen and the target is unblinded. Empty or
+future-facing analysis scaffolds are not results.
+
+## Results
+
+Results are pending. This section will be completed after the preregistered
+challenge, one-time unblinding, independent checksum verification, and analysis.
+Until then, the repository contains a protocol and evidentiary foundation—not a
+confirmatory finding.
+
+## Discussion
+
+### Planned interpretation
+
+An exact ten-card match would be extraordinarily inconsistent with independent
+uniform guessing under the specified null. Combined with a byte-preserved
+transcript showing the encoded target before its erase sequences, it would
+support successful transcript-mediated recovery by the declared inspection
+pipeline. The target record, transcript, prediction freeze, and unblinding order
+are all necessary: probability alone cannot identify the mechanism.
+
+A partial or failed match would be reported directly. It could reflect absence
+of the target in the recording, a transcription or notation error, incomplete
+inspection, file mismatch, or another pipeline failure. It would not erase the
+foundation case, and it would not justify an undeclared retry.
+
+### Claim boundary
+
+Even a perfect result would not establish that:
+
+- `llama-cli` or the local model received the deleted canonical draft;
+- OpenAI, ChatGPT, Codex, Ollama, Apple, or a network service collected it;
+- the assistant guessed the sequence without transcript access;
+- the same recovery rate generalizes to other terminals, recorders, operating
+  systems, models, or sessions; or
+- shared context or matching output proves continuous subjective identity.
+
+The study tests a declared artifact-recovery path. Process input, terminal echo,
+recorder output, model response, inspection-tool access, and network telemetry
+remain separate evidentiary layers.
+
+### Strengths and limitations
+
+The design replaces a researcher-authored phrase with an externally generated
+physical target, freezes the prediction before unblinding, uses an exact primary
+endpoint, and preserves byte-level evidence. A standard deck also makes the
+sampling frame easy for other researchers to reproduce.
+
+Limitations include a single challenge, imperfectly characterized physical
+shuffling, human transcription, a card notation not yet frozen, reliance on one
+local software path, and the fact that the inspecting assistant is intentionally
+given read access to the transcript. These constraints will remain visible in
+the final report rather than being repaired after the outcome is known.
+
+## Conclusion
+
+Backspace Gate is a prospective blinded test of whether a declared transcript-
+inspection pipeline can recover an exact ten-card sequence that was typed and
+visually deleted before a different line was submitted. Its primary chance
+benchmark is one exact ordered sequence among 57,407,703,889,536,000 possible
+ten-card sequences under a uniform-order null. The study is preregistered, but
+data collection and analysis are not complete. The completed terminal case is
+preserved as a transparent foundation and must not be mistaken for the outcome
+of this confirmatory challenge.
+
+## Foundation, Data, and Code Availability
+
+- [Original observation and completed technical case report](foundation/original-observation/)
+- [Prospective preregistration](preregistration/PREREGISTRATION-2026-09-24.md)
+- [Foundation evidence collection](evidence/)
+- [Foundation technical documentation](docs/)
+- [Existing foundation and validation utilities](analysis/)
+- [Provenance records](provenance/)
+- [Credits and contribution record](CREDITS.md)
+
+The repository is presently private. Original iPhone videos from the foundation
+case remain indexed by checksum and are managed separately; first-frame previews
+are included. Model weights and credentials are excluded.
+
+## ACK
+
+Taylor McCoy conceived the confirmatory challenge, controls the physical target
+generation and blinding, and will preserve the ground-truth record. Blu (OpenAI
+Codex, Blu Private lane) formalized the protocol, exact-null calculation,
+evidence boundaries, and reproducible repository structure. The original case
+and prospective study were refined collaboratively. No external funding was
+received, and referenced vendors did not sponsor or endorse this work.
+
+## References
+
+Abramson, J., & North, S. (2020). *College algebra with corequisite support*.
+OpenStax.
+https://openstax.org/books/college-algebra-corequisite-support/pages/9-5-counting-principles
+
+Apple Inc. (2023a). *script.c* (shell_cmds-302.0.1) [Source code]. Apple Open
+Source.
+https://github.com/apple-oss-distributions/shell_cmds/blob/e256b9a97f9bbd751305b7af36cf751668fbb849/script/script.c
+
+Apple Inc. (2023b). *script(1): Make typescript of terminal session* [Manual
+page]. Apple Open Source.
+https://github.com/apple-oss-distributions/shell_cmds/blob/e256b9a97f9bbd751305b7af36cf751668fbb849/script/script.1
+
+Best, D. J., & Roberts, D. E. (1975). Algorithm AS 89: The upper tail
+probabilities of Spearman's rho. *Journal of the Royal Statistical Society:
+Series C (Applied Statistics), 24*(3), 377–379.
+https://doi.org/10.2307/2347111
+
+Mistral AI. (2025). *Ministral 3 14B Instruct 2512 GGUF* [Large language model].
+Hugging Face.
+https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512-GGUF
+
+R Core Team. (2026). *R: A language and environment for statistical
+computing*. R Foundation for Statistical Computing.
+https://doi.org/10.32614/R.manuals
+
+Spearman, C. (1904). The proof and measurement of association between two
+things. *The American Journal of Psychology, 15*(1), 72–101.
+https://doi.org/10.2307/1412159
+
+The Open Group. (2004). General terminal interface. In *The Open Group Base
+Specifications Issue 6, IEEE Std 1003.1, 2004 edition*.
+https://pubs.opengroup.org/onlinepubs/007904975/basedefs/xbd_chap11.html
+
+Wasserstein, R. L., & Lazar, N. A. (2016). The ASA's statement on p-values:
+Context, process, and purpose. *The American Statistician, 70*(2), 129–133.
+https://doi.org/10.1080/00031305.2016.1154108

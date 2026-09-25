@@ -1,5 +1,9 @@
 # Backspace Gate: Deleted text persisted in a recorded macOS pseudo-terminal while canonical line editing withheld it from a local language-model process
 
+> **Foundation case report.** This completed September 21 observation motivated
+> the repository's [prospective blinded ten-card study](../../README.md). It is
+> preserved as prior evidence and must not be counted as that study's result.
+
 **Taylor McCoy¹ and Blu²**  
 ¹ Independent researcher  
 ² OpenAI Codex, Blu Private lane; technical collaborator  
@@ -207,7 +211,7 @@ data. Because the replacement sentence was also 15 bytes, the 75-byte region
 contained 60 bytes beyond a final-line-only 15-byte baseline. This ratio is
 specific to one-byte ASCII and this terminal's measured `08 20 08` behavior.
 
-![Primary read-only byte evidence](../evidence/screenshots/18-primary-byte-evidence.png)
+![Primary read-only byte evidence](../../evidence/screenshots/18-primary-byte-evidence.png)
 
 ### Matched diagnostic
 
